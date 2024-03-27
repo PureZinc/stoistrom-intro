@@ -1,7 +1,7 @@
-import useFetch from "../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 
 export default function Blogs() {
-    const { isLoading, error, data: blogs } = useFetch('none')
+    const { isLoading, error, data: blogs } = useFetch('http://127.0.0.1:8000/blogs');
 
   return (
     <div className="text-center">
@@ -11,14 +11,15 @@ export default function Blogs() {
         {error && <div>
             <p>We don't have any blogs to show yet :{'('}</p>
         </div>}
-        {blogs && <div>
+        {blogs && <div className="grid md:grid-cols-2 grid-cols-1">
             {blogs.map((blog, index) => (
                 <div key={index} 
-                    className={`flex flex-col justify-center items-center text-center opacity-0
+                    className={`flex flex-col justify-center items-center text-center fade-in
                     bg-gradient-to-t from-orange-100 to-white p-4 m-4 border border-dashed border-black`}
                 >
+                    <p>{blog.posted_on}</p>
                     <h3 className="text-3xl mb-3 main-font-sm">{blog.title}</h3>
-                    <p>{blog.description}</p>
+                    <p>{blog.subtitle}</p>
                 </div>
             ))}
         </div>}

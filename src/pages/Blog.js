@@ -1,4 +1,4 @@
-import Blogs from "../components/Blogs";
+import Blogs from "../components/Blog/Blogs";
 import Intro from "../components/Intro";
 
 export default function Blog() {

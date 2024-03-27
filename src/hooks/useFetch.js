@@ -1,24 +1,48 @@
 import { useState, useEffect } from "react";
 
-export default function useFetch(endpoint) {
+export default function useFetch(endpoint, method='GET') {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
+    const [request, setRequest] = useState(null)
 
     useEffect(() => {
-      fetch(endpoint)
-        .then(res => {
-          return res.json()
-        })
-        .then(data => {
-          setData(data)
-          setIsLoading(false)
-        })
-        .catch(err => {
-            setError(true)
-            setIsLoading(false)
-        })
-    }, [endpoint])
+      const fetchData = async () => {
+          setIsLoading(true);
+          setError(false);
+          setData(null);
 
-    return { isLoading, error, data }
+          try {
+              const requestOptions = request ? {
+                  method: method,
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(request.body),
+              } : {
+                  method: 'GET',
+              };
+
+              const response = await fetch(endpoint, requestOptions);
+              if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              const responseData = await response.json();
+              setData(responseData);
+          } catch (err) {
+              setError(true);
+          } finally {
+              setIsLoading(false);
+          }
+      };
+      fetchData();
+    }, [endpoint, request])
+
+    const requestSetter = (body) => {
+        if (method === 'POST') {
+            setRequest({ body });
+        }
+    };
+
+    return { isLoading, error, data, requestSetter }
 }

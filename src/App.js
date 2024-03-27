@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import JoinNewsletter from './components/JoinNewsletter';
 import Footer from './components/Footer';
 
 import Main from './pages/Main';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/work" element={<WorkWithUs />} />
         </Routes>
+        <JoinNewsletter />
         <Footer />
       </div>
     </Router>
