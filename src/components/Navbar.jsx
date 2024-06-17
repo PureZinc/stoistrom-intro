@@ -29,42 +29,26 @@ export default function Navbar() {
     ]
 
   return (
-    <nav className="flex justify-between items-center w-full h-20 px-4 text-black">
-        <div>
-            <Link to="/" className="text-4xl main-font-lg text-black">Stoistrom</Link>
-        </div>
+    <nav>
+        <Link to="/" className="text-4xl main-font-lg text-black">Stoistrom</Link>
 
         <ul className="hidden md:flex space-x-6 text-2xl">
             {navLinks.map((link) => (
-                <li key={link.id} 
-                    className="cursor-pointer main-font-sm rounded-3xl px-5 py-3 border-black
-                    hover:scale-105 transition-all duration-100"
-                >
-                    <Link to={link.page}>
+                <Link to={link.page}>
+                    <li key={link.id} className="link-desktop">
                         {link.name}
-                    </Link>
-                </li>
+                    </li>
+                </Link>
             ))}
         </ul>
 
-        <div
-            onClick={() => setNavVisible(!navVisible)}
-            className="cursor-pointer pr-4 z-10 md:hidden"
-        >
+        <div id="menu" onClick={() => setNavVisible(!navVisible)} className="cursor-pointer pr-4 z-10 md:hidden">
             {navVisible ? <FaX size={30} />: <FaBars size={30} />}
         </div>
 
-        {navVisible && <ul 
-            className="md:hidden flex flex-col justify-center items-center absolute z-20
-            top-0 left-0 w-full h-screen bg-gradient-to-t from-orange-100 via-orange-100 to-white"
-        >
+        {navVisible && <ul className="nav-mobile">
             <li className="cursor-pointer py-5 text-4xl main-font-sm">
-                <Link 
-                    to="/"
-                    onClick={() => setNavVisible(!navVisible)}
-                >
-                    Home
-                </Link>
+                <Link to="/" onClick={() => setNavVisible(!navVisible)}>Home</Link>
             </li>
             {navLinks.map((link) => (
                 <li key={link.id} className="cursor-pointer py-5 text-4xl main-font-sm">

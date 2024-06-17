@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 @keyframes fadeIn {
     from {
       opacity: 0;
@@ -32,4 +38,61 @@
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+}
+
+/* Main Designs */
+body {
+  @apply bg-orange-100;
+}
+nav {
+  @apply flex justify-between items-center w-full h-20 px-4 text-black;
+}
+nav .nav-mobile {
+  @apply md:hidden flex flex-col justify-center items-center absolute z-20 
+  top-0 left-0 w-full h-screen bg-gradient-to-t from-orange-100 to-white;
+}
+nav .link-desktop {
+  @apply cursor-pointer main-font-sm rounded-3xl px-5 py-3 border-black
+  hover:scale-105 transition-all duration-100;
+}
+
+.grid-container-2-1 {
+  @apply grid md:grid-cols-2 grid-cols-1;
+}
+
+.grid-container-3-1 {
+  @apply grid md:grid-cols-3 grid-cols-1;
+}
+
+.main-card {
+  @apply flex flex-col justify-center items-center text-center hover:scale-90
+  bg-gradient-to-t from-orange-100 to-white p-4 m-4 border border-dashed
+border-black transition-all duration-300 opacity-0 cursor-pointer;
+}
+.main-card h3 {
+  @apply text-3xl mb-3 main-font-sm;
+}
+
+.main-modal {
+  @apply fixed inset-0 bg-opacity-75 bg-orange-100 items-center justify-center z-50;
+}
+.main-modal .x-close {
+  @apply text-gray-600 hover:text-gray-700 focus:outline-none;
+}
+.main-modal .modal-container {
+  @apply bg-orange-100 border border-black border-dashed p-8 rounded shadow-md w-96;
+}
+
+.main-button {
+  @apply px-4 py-2 border border-dashed border-black bg-orange-100 text-black rounded 
+  transition-all duration-300 hover:bg-orange-50 focus:outline-none ml-2 main-font-lg;
+}
+
+.main-border-design {
+  @apply border-black border-dashed;
+}
+
+.join-newsletter {
+  @apply flex flex-col justify-between items-center text-center px-4 text-black pt-3 mb-5 
+  border-t main-border-design;
 }

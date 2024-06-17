@@ -13,7 +13,6 @@ import WorkWithUs from './pages/WorkWithUs';
 function App() {
   return (
     <Router>
-      <div className="bg-orange-100 min-h-screen">
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Main />} />
@@ -24,7 +23,6 @@ function App() {
         </Routes>
         <JoinNewsletter />
         <Footer />
-      </div>
     </Router>
   );
 }

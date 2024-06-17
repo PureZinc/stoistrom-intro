@@ -12,11 +12,8 @@ export default function Main() {
         subtitle="The #1 app for self-improvement!"
       />
       <MainDetails />
-      <div className="flex flex-col justify-center">
-        <button 
-          className="mt-3 mb-5 mx-auto border border-black border-dashed hover:scale-105 main-font-sm" 
-          onClick={() => nav('explore')}
-        >
+      <div className="flex flex-col justify-center items-center">
+        <button className="main-button" onClick={() => nav('explore')}>
           Explore -{'>'}
         </button>
       </div>

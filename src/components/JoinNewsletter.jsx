@@ -33,14 +33,12 @@ export default function JoinNewsletter() {
     };
 
   return (
-    <div className="flex flex-col justify-between items-center w-full h-20 px-4 text-black pt-3 mb-5
-        border-t border-black border-dashed"
-    >
+    <div className="join-newsletter">
         <h2 className=" text-3xl main-font-sm">Join Our Newsletter for Daily Affirmations!</h2>
         {subscribed ? (
             <p>Congratz! You subscribed! Check your email!</p>
         ) : (
-            <form onSubmit={handleSubmit} className="flex flex-row p-3">
+            <form onSubmit={handleSubmit} className="flex md:flex-row flex-col p-3">
                 {formDetails.map((entry, index) => (
                     <input key={index}
                         type={entry.type}
@@ -51,10 +49,10 @@ export default function JoinNewsletter() {
                             [entry.entry]: e.target.value
                         })}
                         required
-                        className="border border-black border-dashed text-center bg-orange-50 main-font-sm"
+                        className="border main-border-design text-center bg-orange-50 main-font-sm"
                     />
                 ))}
-                <button type="submit" className="p-2 border border-black border-dashed">Subscribe</button>
+                <button type="submit" className="main-button">Subscribe</button>
             </form>
         )}
     </div>

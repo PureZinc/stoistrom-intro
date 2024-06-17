@@ -26,14 +26,10 @@ export default function MainDetails() {
     const { dataIndex: detailIndex } = useLoad(mainDetails);
 
   return (
-    <div className="grid md:grid-cols-3 grid-cols-1">
+    <div className="grid-container-3-1">
         {mainDetails.map((detail, index) => (
-            <div key={index} 
-                className={`flex flex-col justify-center items-center text-center opacity-0 text-black
-                bg-gradient-to-t from-orange-100 to-white p-4 m-4 border border-dashed border-black
-                ${index <= detailIndex && 'fade-in'}`}
-            >
-                <h3 className="text-3xl mb-3 main-font-sm">{detail.title}</h3>
+            <div key={index} className={`main-card ${index <= detailIndex && 'fade-in'}`}>
+                <h3>{detail.title}</h3>
                 <p>{detail.description}</p>
             </div>
         ))}
