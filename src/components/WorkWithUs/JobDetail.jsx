@@ -7,9 +7,11 @@ export default function JobDetail() {
     const jobs = jobDetails;
     const { dataIndex: jobIndex } = useLoad(jobDetails);
     const [modal, setModal] = useState(false);
+    const [jobDetail, setJobDetail ] = useState(0);
 
-    function openModal(name) {
+    function openModal(job) {
         setModal(!modal);
+        setJobDetail(job);
     }
 
   return (
@@ -19,14 +21,14 @@ export default function JobDetail() {
             <div
                 key={index}
                 className={`main-card ${index <= jobIndex && 'fade-in'}`}
-                onClick={() => openModal(job.title)}
+                onClick={() => openModal(job)}
             >
                 <h3>{job.title}</h3>
                 <p>{job.description}</p>
             </div>
         ))}
     </div>
-    <JobTitle isOpen={modal} setIsOpen={setModal} />
+    <JobTitle isOpen={modal} setIsOpen={setModal} jobDetail={jobDetail} />
     </>
   )
 }

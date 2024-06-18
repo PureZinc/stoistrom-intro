@@ -7,6 +7,9 @@ export default function Explore() {
             title="Explore Stoistrom!"
             subtitle="Experience our preview app!"
         />
+        <div id="features">
+          Coming Soon ;{')'}
+        </div>
     </div>
   )
 }

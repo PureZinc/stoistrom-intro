@@ -42,7 +42,7 @@
 
 /* Main Designs */
 body {
-  @apply bg-orange-100;
+  @apply bg-orange-100 text-center;
 }
 nav {
   @apply flex justify-between items-center w-full h-20 px-4 text-black;
