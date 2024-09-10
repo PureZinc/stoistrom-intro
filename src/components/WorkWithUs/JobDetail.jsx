@@ -1,7 +1,7 @@
 import { jobDetails } from "./jobDetails"
 import useLoad from "../../hooks/useLoad";
 import { useState } from "react";
-import JobTitle from "./JobTitle";
+import JobModal from "./JobModal";
 
 export default function JobDetail() {
     const jobs = jobDetails;
@@ -28,7 +28,7 @@ export default function JobDetail() {
             </div>
         ))}
     </div>
-    <JobTitle isOpen={modal} setIsOpen={setModal} jobDetail={jobDetail} />
+    <JobModal isOpen={modal} setIsOpen={setModal} jobDetail={jobDetail} />
     </>
   )
 }

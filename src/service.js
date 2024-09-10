@@ -6,5 +6,7 @@ export const COMPANY_LINKS = {
     twitter: "https://twitter.com/",
     github: "https://github.com/nov8devs/stoistrom",
     privacyPolicy: "#",
-    companyDocs: "#"
+    companyDocs: "#",
+    developerHiree: "#",
+    marketerHiree: "#"
 }
